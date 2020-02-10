@@ -11,6 +11,7 @@
 
 #include <stdio.h>
 #include <vector>
+#include <memory>
 
 #include "perlinNoise.hpp"
 
@@ -19,7 +20,7 @@ namespace hg {
     public:
         MultiPerlinNoise();
         
-        std::vector<PerlinNoise*> perlinNoises;
+        std::vector<std::unique_ptr<PerlinNoise>> perlinNoises;
         
         float octaveNoise(float x, float y);
     };
